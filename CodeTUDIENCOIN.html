@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SUPER dictionary </title>
+
+    <style>
+        body {padding-top: 50px}
+        cell {
+            width: 20px;
+            height:20px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<h2 style="color: red; margin-left: 40px;">
+    TRA CỨU GIÁ COIN:</h2>
+<body>
+<input type="text" id="txtValue"/>
+<input type="button" id="btnAdd" value="Search" onclick="add_element_to_array();"/>
+<input type="button" id="btnDisplay" value="Trans" onclick="trans();"/>
+
+<div id="result"></div>
+<script>
+    var nameArr = ['btc','eth','xrp','bch'];
+    var valueArr = ['6.500 $','218 $','0,5 $','522 $'];
+    var x = 0;
+    var array = Array();
+    function add_element_to_array() {
+        array[x] = document.getElementById("txtValue").value;
+        alert(array[x] + "Want to look up coin prices?");
+        x++;
+        document.getElementById("txtValue ").value = "";
+    }
+
+    function trans(){
+        var keySearch = document.getElementById('txtValue').value;
+        console.log(keySearch);
+        var indexOfWord = -1;
+        for (var i = 0; i < nameArr.length; i++) {
+            if(nameArr[i]==keySearch){
+                indexOfWord = i;
+            }
+        }
+        if(indexOfWord>-1){
+            alert(valueArr[indexOfWord])
+        }else{
+            alert('This coin is currently not updated!')
+        }
+    }
+</script>
+</body>
+</html>
